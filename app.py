@@ -18,7 +18,7 @@ file_path = Path(__file__).parent / "hashed_pw.pkl"
 with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
-authenticator=stauth.Authenticate(names, usernames,hashed_passwords,"data_analysis", "abcdef", cookie_expiry_days=30)
+#authenticator=stauth.Authenticate(names, usernames,hashed_passwords,"data_analysis", "abcdef", cookie_expiry_days=30)
 name, authentication_status, username = authenticator.login("Login","main")
 
 if authentication_status == False:
@@ -47,6 +47,7 @@ if authentication_status:
                     'Box Plots', 'analyse the endpoints', 'Classify and analyse the data with rows and columns']
     excel_type =["vnd.ms-excel","vnd.openxmlformats-officedocument.spreadsheetml.sheet", "vnd.oasis.opendocument.spreadsheet", "vnd.oasis.opendocument.text"]
     authenticator.logout("Logout","sidebar")
+    st.sidebar.title("Welcome {name}")
     uploaded_file = st.sidebar.file_uploader("Upload Your file", type=file_format_type)
 
     if uploaded_file is not None:
