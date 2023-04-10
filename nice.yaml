@@ -1,0 +1,14 @@
+credentials:
+  usernames:
+    npandey:
+      email: pandeynimish2001@gmail.com
+      name: Nimish Pandey
+      password: 123 # To be replaced with hashed password
+    mupase:
+      email: mehulupase@gmail.com
+      name: Mehul Upase
+      password: 456 # To be replaced with hashed password
+cookie:
+  expiry_days: 30
+  key: abcde # Must be string
+  name: data-analysis

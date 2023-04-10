@@ -9,4 +9,4 @@ xlrd>=1.0.0
 seaborn
 odfpy
 plotly
-streamlit-authenticator
+streamlit-authenticator==0.1.5
