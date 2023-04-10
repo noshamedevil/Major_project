@@ -47,7 +47,7 @@ if authentication_status:
                     'Box Plots', 'analyse the endpoints', 'Classify and analyse the data with rows and columns']
     excel_type =["vnd.ms-excel","vnd.openxmlformats-officedocument.spreadsheetml.sheet", "vnd.oasis.opendocument.spreadsheet", "vnd.oasis.opendocument.text"]
     authenticator.logout("Logout","sidebar")
-    st.sidebar.title("Welcome {name}")
+    st.sidebar.title("Welcome" {name})
     uploaded_file = st.sidebar.file_uploader("Upload Your file", type=file_format_type)
 
     if uploaded_file is not None:
