@@ -11,24 +11,7 @@ from pathlib import Path
 
 import streamlit_authenticator as stauth
 
-#-----Login screen--------
-names=["Nimish Pandey","Mehul Upase","Shreyash Dhanawade"]
-usernames=["npandey","mupase","sdhanawade"]
-file_path = Path(__file__).parent / "hashed_pw.pkl"
-with file_path.open("rb") as file:
-    hashed_passwords = pickle.load(file)
-
-authenticator=stauth.Authenticate(names, usernames,hashed_passwords,"data_analysis", "abcdef", cookie_expiry_days=3)
-name, authentication_status, username = authenticator.login("Login","main")
-
-if authentication_status == False:
-    st.error("Username or Password is incorrect")
-
-if authentication_status == None:
-    st.warning("Please enter your username and password")
-
-if authentication_status:
-    st.set_page_config(
+st.set_page_config(
         page_title="Inligence cloud",
         page_icon="🧊",
         layout="wide",
@@ -38,6 +21,23 @@ if authentication_status:
             'Report a bug': "https://www.woobblr.co.in",
         }
     )
+#-----Login screen--------
+names=["Nimish Pandey","Mehul Upase","Shreyash Dhanawade"]
+usernames=["npandey","mupase","sdhanawade"]
+file_path = Path(__file__).parent / "hashed_pw.pkl"
+with file_path.open("rb") as file:
+    hashed_passwords = pickle.load(file)
+
+authenticator=stauth.Authenticate(names, usernames,hashed_passwords,"data_analysis", "abcdef", cookie_expiry_days=30)
+name, authentication_status, username = authenticator.login("Login","main")
+
+if authentication_status == False:
+    st.error("Username or Password is incorrect")
+
+if authentication_status == None:
+    st.warning("Please enter your username and password")
+
+if authentication_status:
     st.image('image.jpeg', caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     st.sidebar.title("Inligence Cloud")
 
